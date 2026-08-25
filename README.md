@@ -140,11 +140,4 @@ Some of the business questions answered in this project include:
 
 ---
 
-## 🔥 Advanced SQL Examples
 
-### Month-over-Month Growth
-
-```sql
-LAG(TOTALSALES) OVER (
-    ORDER BY YEARORDER, MONTHORDER
-)
