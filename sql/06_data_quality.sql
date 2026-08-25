@@ -45,3 +45,29 @@ WHERE DATEDIFF(
     )
     FROM orders_data
 );
+
+-- ============================================================
+-- ADVANCED SQL SALES ANALYTICS
+-- Section 6: Data Quality & Validation
+-- ============================================================
+
+
+-- 49) Find rows where ship_date is earlier than order_date.
+
+SELECT 
+    ORDER_ID,
+    ORDER_DATE,
+    SHIP_DATE
+FROM orders_data
+WHERE CONVERT(DATE, SHIP_DATE) < CONVERT(DATE, ORDER_DATE);
+
+
+-- 50) Find ORDER_ID values that appear more than once
+-- in orders_data.
+
+SELECT 
+    ORDER_ID,
+    COUNT(ORDER_ID) AS ORDERCOUNT
+FROM orders_data
+GROUP BY ORDER_ID
+HAVING COUNT(ORDER_ID) > 1;
